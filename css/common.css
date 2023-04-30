@@ -23,3 +23,13 @@ button {
   cursor: pointer;
 }
 
+.gallery { 
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+.gallery-img{
+  width: 200px;height: 150px;
+}
+
+

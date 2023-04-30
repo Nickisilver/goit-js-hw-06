@@ -1,17 +1,41 @@
-// elem.parentNode - вибере батьківський elem.
-// elem.childNodes - псевдомасив, зберігає всі дочірні елементи, включно з текстовими.
-// elem.children - псевдомасив, зберігає тільки дочірні вузли-елементи, тобто ті, що відповідають тегам.
-// elem.firstChild - вибере перший дочірній елемент всередині elem, включно з текстовими вузлами.
-// elem.firstElementChild - вибере перший дочірній вузол-елемент всередині elem.
-// elem.lastChild - вибере останній дочірній елемент всередині elem, включно з текстовими вузлами.
-// elem.lastElementChild - вибере останній дочірній вузол-елемент всередині elem.
-// elem.previousSibling - вибере елемент «зліва» від elem (його попереднього сусіда).
-// elem.previousElementSibling - вибере вузол-елемент «зліва» від elem (його попереднього сусіда).
-// elem.nextSibling - вибере елемент «праворуч» від elem (його наступного сусіда)
-// elem.nextElementSibling - вибере вузол-елемент «праворуч» від elem (його наступного сусіда).
+const mainDiv = document.getElementById("controls")
+const inputCounterRef = document.querySelector('[type="number"]')
+// console.log(inputCounterRef.value)
+const btnsRef = document.querySelectorAll("button")
+const btnCreate = btnsRef[0];
+const btnDelete = btnsRef[1];
+const arrBlocks =[];
+let pushBlocks;
+
+inputCounterRef.addEventListener("blur", function numberOfCreateContainers() {
+
+  
+  btnCreate.addEventListener("click",function createBlocks(evnt){
+
+      for(let i = 0; i < inputCounterRef.value; i+=1){
+  arrBlocks.push('<div id="boxes"></div>');
+}
+
+    pushBlocks = arrBlocks.join("")
+    mainDiv.insertAdjacentHTML("beforeend", pushBlocks)
+    const newDiv = document.querySelectorAll("#boxes")
+    newDiv.forEach(el=>{
+      el.style.background = getRandomHexColor()
+      el.style.width = "30px"
+      el.style.heigth = "30px";
+    })
+    })
+  })
+
+
+
+
+
+
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
     .toString(16)
     .padStart(6, 0)}`;
 }
+

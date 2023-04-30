@@ -22,5 +22,5 @@ console.log(galleryList)
 
 
 galleryList.insertAdjacentHTML("beforeend",
-images.map(el => `<li><img src=${el.url} alt=${el.alt}></li>`)).join("")
+images.map(el => `<li class = "gallery-item"><img class = "gallery-img" src='${el.url}' alt='${el.alt}'></li>`).join(""))
 
